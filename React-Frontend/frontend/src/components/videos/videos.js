@@ -70,6 +70,11 @@ const Videos = (props) => {
 										</Typography>
 										<div className={classes.videoDescription}>
 											<Typography color="textSecondary">
+												{video.user}
+											</Typography>
+										</div>
+										<div className={classes.videoDescription}>
+											<Typography color="textSecondary">
 												{video.date_added.substr(0, 40)}
 											</Typography>
 										</div>

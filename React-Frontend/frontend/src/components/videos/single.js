@@ -36,8 +36,10 @@ export default function Video() {
 			<video controls src={data.videos.video} preload="true" loop width="900"></video>
 			<h2 class="title">{data.videos.title}</h2>
 			<div class="activity-part">
+
         <div class="user">{data.videos.user}</div>
-        <button class="subscribe">subscribe</button>
+		
+        <a href="#" class="subscribe">subscribe</a>
 		    <button onClick={like} class="like">{likes} 👍</button>
 			  <button onClick={dislike} class="dislike">{dislikes} 👎</button>
       </div>

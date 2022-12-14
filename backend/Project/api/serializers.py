@@ -4,6 +4,7 @@ from django.conf import settings
 
 
 class VideoSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Video
         fields = "__all__"

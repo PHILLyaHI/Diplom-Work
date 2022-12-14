@@ -51,8 +51,7 @@ export default function Create() {
 	const handleChange = (e) => {
 		updateFormData({
 			...formData,
-			// Trimming any whitespace
-			[e.target.name]: e.target.value.trim(),
+			[e.target.name]: e.target.value,
 		});
 	};
 
@@ -63,7 +62,7 @@ export default function Create() {
 		axiosInstance.put(`admin/edit/` + id + '/', {
 			title: formData.title,
 			description: formData.description,
-			author: 1,
+			user: 1,
 		});
 		history.push({
 			pathname: '/admin/',
