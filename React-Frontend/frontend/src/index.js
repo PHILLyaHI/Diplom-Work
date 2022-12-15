@@ -16,6 +16,7 @@ import Create from './components/admin/create';
 import Edit from './components/admin/edit';
 import Delete from './components/admin/delete';
 import Chat from './components/videos/chat';
+import WebPush from './components/videos/webpush';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -34,6 +35,7 @@ root.render(
 				<Route exact path="/video/:id" component={Single} />
 				<Route path="/search" component={Search} />
 				<Route path="/chat" component={Chat} />
+				<Route path="/webpush" component={WebPush} />
 			</Switch>
 		</React.StrictMode>
 	</Router>

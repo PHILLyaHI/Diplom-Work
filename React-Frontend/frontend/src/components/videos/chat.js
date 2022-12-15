@@ -15,7 +15,9 @@ const useStyles = (theme) => ({
   },
 });
 
+
 class Chat extends Component {
+
   state = {
     filledForm: false,
     messages: [],
@@ -24,8 +26,7 @@ class Chat extends Component {
     room: 'test',
   }
 
-  client = new W3CWebSocket('ws://127.0.0.1:8000/ws/' + this.state.room + '/'); //gets room_name from the state and connects to the backend server 
-  
+  client = new W3CWebSocket('ws://127.0.0.1:8000/ws/' + this.state.room + '/');
 
   onButtonClicked = (e) => {
     this.client.send(
@@ -58,7 +59,8 @@ class Chat extends Component {
       }
     };
   }
-  render() {
+
+  render(){
     const { classes } = this.props;
     return (
       <Container component="main" maxWidth="xs">

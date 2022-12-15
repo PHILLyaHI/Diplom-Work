@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from datetime import timedelta
 from pathlib import Path
-from django_jinja.builtins import DEFAULT_EXTENSIONS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,12 +49,11 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework_simplejwt.token_blacklist",
     "django_filters",
-    "webpush",
 ]
 
 SITE_ID = 1
 
-ASGI_APPLICATION = "project.routing.application"
+ASGI_APPLICATION = "chat.routing.application"
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -68,11 +66,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CHANNEL_LAYERS = {
-    'default':{
-        'BACKEND':'channels.layers.InMemoryChannelLayer',
-    }
-}
 
 ROOT_URLCONF = 'project.urls'
 
@@ -89,9 +82,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            "extensions": DEFAULT_EXTENSIONS + [
-                "webpush.jinja2.WebPushExtension"
-            ]
         },
     },
 ]
@@ -167,9 +157,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ],
-    # 'DEFAULT_AUTHENTICATION_CLASSES': [
-    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
-    # ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+         'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
     "DEFAULT_SCHEMA_CLASS": 'rest_framework.schemas.coreapi.AutoSchema',
 }
 
@@ -210,10 +200,3 @@ CHANNEL_LAYERS = {
         'BACKEND': "channels.layers.InMemoryChannelLayer"
         }
     }
-
-
-WEBPUSH_SETTINGS = {
-    "VAPID_PUBLIC_KEY": "BBr4U3fqPI86fcQyLKxpzEY9MnCbPK_c0FYYf-kB53SeyBm6X5soVA8xFLt8f56b4hF4-swsPhS_kxpwd6NZZ6U",
-    "VAPID_PRIVATE_KEY":"8QF2Cvy15KNpdFvO6bIHpNg2XNdRMvWsE4As_NdZ5zM",
-    "VAPID_ADMIN_EMAIL": "phillippapetenok@gmail.com"
-}
