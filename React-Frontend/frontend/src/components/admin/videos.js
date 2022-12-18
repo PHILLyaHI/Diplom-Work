@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 const Videos = (props) => {
 	const { videos } = props;
 	const classes = useStyles();
-	if (!videos || videos.length === 0) return <p>Can not find any videos, sorry</p>;
+	if (!videos || videos.length === 0) return <Button href={'/admin/create'} variant="contained" color="primary">New Video</Button>;
 	return (
 		<React.Fragment>
 			<Container maxWidth="md" component="main">

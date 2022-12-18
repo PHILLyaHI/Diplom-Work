@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axiosInstance from '../../axios';
 import { useHistory } from 'react-router-dom';
+import addNotification from "react-push-notification";
+import logo from "../../static/videos/logo.jpg";
 //MaterialUI
 import Avatar from '@material-ui/core/Avatar';
 import axios from "axios";
@@ -34,6 +36,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
+// ...
+// admin/create.js
 export default function Create() {
 	const history = useHistory();
 	const initialFormData = Object.freeze({
@@ -77,7 +81,10 @@ export default function Create() {
 		const URL = 'http://127.0.0.1:8000/api/admin/create/';
 		let formData = new FormData();
 		formData.append('title', videoData.title);
-		formData.append('user', 1);
+
+		// default user_id seted to 1
+		formData.append('user', );
+
 		formData.append('description', videoData.description);
 		formData.append('image', videoimage.image[0]);
 		formData.append('video', videovideo.video[0]);

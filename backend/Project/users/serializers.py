@@ -16,3 +16,11 @@ class RegisterUserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+    
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+        token['user_name'] = user.user_name
+        token['first_name'] = user.first_name
+
+        return token

@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'projectapp',
     'rest_framework',
     'users',
-    'chat',
     'channels',
     'drf_yasg',
     'api',
@@ -53,7 +52,7 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-ASGI_APPLICATION = "chat.routing.application"
+ASGI_APPLICATION = "project.routing.application"
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -158,7 +157,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     "DEFAULT_SCHEMA_CLASS": 'rest_framework.schemas.coreapi.AutoSchema',
 }
@@ -174,9 +173,7 @@ EMAIL_HOST_USER = 'phillippapetenok@gmail.vom'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS= True
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000"
-]
+CORS_ALLOW_ALL_ORIGINS = True
 
 AUTH_USER_MODEL = "users.NewUser"
 
@@ -194,9 +191,3 @@ SIMPLE_JWT = {
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
     'TOKEN_TYPE_CLAIM': 'token_type',
 }
-
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': "channels.layers.InMemoryChannelLayer"
-        }
-    }
