@@ -1,3 +1,4 @@
+arrow==1.2.3
 asgiref==3.5.2
 async-timeout==4.0.2
 autopep8==2.0.0
@@ -44,6 +45,7 @@ pyasn1==0.4.8
 pycodestyle==2.10.0
 pycparser==2.21
 PyJWT==2.6.0
+python-dateutil==2.8.2
 python-jose==3.3.0
 python3-openid==3.2.0
 pytz==2022.6

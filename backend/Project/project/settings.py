@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from datetime import timedelta
 from pathlib import Path
+#from django_jinja.builtins import DEFAULT_EXTENSIONS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -48,6 +49,8 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework_simplejwt.token_blacklist",
     "django_filters",
+    "chat",
+    "webpush",
 ]
 
 SITE_ID = 1
@@ -68,6 +71,17 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'project.urls'
 
+
+# TEMPLATES = [
+#     {
+#         "BACKEND": "django_jinja.backend.Jinja2",
+#         "OPTIONS": {
+#             "extensions": DEFAULT_EXTENSIONS + [
+#                 "webpush.jinja2.WebPushExtension"
+#             ]
+#         }
+#     }
+# ]
 
 TEMPLATES = [
     {
@@ -148,6 +162,11 @@ STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': "channels.layers.InMemoryChannelLayer"
+        }
+    }
 
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
@@ -190,4 +209,10 @@ SIMPLE_JWT = {
     'USER_ID_CLAIM': 'user_id',
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
     'TOKEN_TYPE_CLAIM': 'token_type',
+}
+
+WEBPUSH_SETTINGS = {
+    "VAPID_PUBLIC_KEY": "BOJvn9nDAJY6p0CKCWl4__erm11ZuXLHg_zeDuwoHA2MhmRJSwdyVWZFLcTg904VylduoHt2GC7aA6LZj1TBrSo",
+    "VAPID_PRIVATE_KEY":"_J65RQ9z9XVRWiLVbnE0yYY1PxhkleRtSwllPlsrJ5M",
+    "VAPID_ADMIN_EMAIL": "phillippapetenok@gmail.com"
 }

@@ -88,7 +88,7 @@ const Input = () => {
           id="file"
           onChange={(e) => setImg(e.target.files[0])}
         />
-        <label htmlFor="file">
+        <label title="IMAGE SUPPOSE TO BE LESS THAN 250KB" htmlFor="file">
           <img src={Img} alt="" />
         </label>
         <button onClick={handleSend}>Send</button>

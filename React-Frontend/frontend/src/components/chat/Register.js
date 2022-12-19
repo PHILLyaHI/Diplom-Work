@@ -4,7 +4,8 @@ import { auth, db, storage } from "../../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from 'firebase/firestore';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import Img from "../../static/chat/add-img.png";
 //import Add from "../../static/chat/addAvatar.png";
 
 const ChatRegister = () => {
@@ -68,12 +69,13 @@ const ChatRegister = () => {
                     <input required type="password" placeholder='password'/>
                     <input required style={{ display: "none" }} type="file" id="file" />
                     <label htmlFor="file">
+                        <img src={Img} alt="" width="30"/>
                         <span>Add an Avatar</span>
                     </label>
                     <button>Sign Up</button>
                     {err && <span>Something went wrong</span>}               
                 </form>
-                <p>You do have an account? Login</p>
+                <p>You do have an account? <Link to="/chat/login">Log In</Link></p>
             </div>
         </div>
     )

@@ -48,6 +48,7 @@ export default function Create() {
 	const [videoData, updateFormData] = useState(initialFormData);
 	const [videoimage, setVideoImage] = useState(null);
 	const [videovideo, setVideoVideo] = useState(null);
+	const [user, setUser] = useState(null);
 
 	const handleChange = (e) => {
 		if ([e.target.name] == 'image') {
@@ -83,7 +84,7 @@ export default function Create() {
 		formData.append('title', videoData.title);
 
 		// default user_id seted to 1
-		formData.append('user', );
+		formData.append('user', 1);
 
 		formData.append('description', videoData.description);
 		formData.append('image', videoimage.image[0]);
