@@ -70,7 +70,7 @@ const Videos = (props) => {
 										</Typography>
 										<div className={classes.videoDescription}>
 											<Typography color="textSecondary">
-												{video.user}
+												{video.user_name}
 											</Typography>
 										</div>
 										<div className={classes.videoDescription}>

@@ -73,6 +73,18 @@ function Header() {
 							href="#"
 							className={classes.link}
 							component={NavLink}
+							to="/email/contact"
+						>
+							Contact Us
+						</Link>
+					</nav>
+
+					<nav>
+						<Link
+							color="textPrimary"
+							href="#"
+							className={classes.link}
+							component={NavLink}
 							to="/chat/login"
 						>
 							Chat

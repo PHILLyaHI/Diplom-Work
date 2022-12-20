@@ -15,6 +15,7 @@ import ChatRegister from './components/chat/Register';
 import ChatLogin from './components/chat/Login';
 import WebPush from './components/videos/webpush';
 import Home from './components/chat/Home';
+import ContactUs from './components/videos/contact';
 import { useContext } from "react";
 import { AuthContext } from "./components/chat/AuthContext";
 
@@ -42,6 +43,7 @@ function Routes() {
                 <Route path="/chat/register" component={ChatRegister} />
                 <Route path="/chat/login" component={ChatLogin} />
                 <Route path="/chat/home" component={Home} />
+                <Route path="/email/contact" component={ContactUs} />
             </Switch>
         </Router>
     )

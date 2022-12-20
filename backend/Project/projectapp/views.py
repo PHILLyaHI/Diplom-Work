@@ -9,14 +9,6 @@ from django.views import View
 from django.http import HttpResponse
 from django.template import loader
 
-def check(request):
-  template = loader.get_template('projectapp/check.html')
-  return HttpResponse(template.render())
-
-def check2(request):
-  template = loader.get_template('projectapp/check2.html')
-  return HttpResponse(template.render())
-
 
 class HomeView(ListView):
     model = Video

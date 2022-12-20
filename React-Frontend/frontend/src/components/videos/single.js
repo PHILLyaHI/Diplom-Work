@@ -37,7 +37,7 @@ export default function Video() {
 			<h2 class="title">{data.videos.title}</h2>
 			<div class="activity-part">
 
-        <div class="user">{data.videos.user}</div>
+        <div class="user">{data.videos.user_name}</div>
 		
         <a href="#" class="subscribe">subscribe</a>
 		    <button onClick={like} class="like">{likes} 👍</button>

@@ -23,11 +23,15 @@ class Profile(models.Model):
     def get_absolute_url(self):
         return reverse('index')
 
+
+
 class Video(models.Model):
     title = models.CharField(max_length=50)
     image = models.ImageField(_("Image"), upload_to=upload_to, default="videos/default.jpg")
     video = models.FileField(_("Video"), upload_to=upload_to, default="videos/default.mp4")
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_channel"
+    )
     description = models.CharField(max_length=255)
     likes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='video_post', null=True, blank=True)
     date_added = models.DateTimeField(default=timezone.now)

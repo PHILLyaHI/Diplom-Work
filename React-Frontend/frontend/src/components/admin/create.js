@@ -84,7 +84,7 @@ export default function Create() {
 		formData.append('title', videoData.title);
 
 		// default user_id seted to 1
-		formData.append('user', 1);
+		//formData.append('user', 1);
 
 		formData.append('description', videoData.description);
 		formData.append('image', videoimage.image[0]);
