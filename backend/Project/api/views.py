@@ -47,9 +47,6 @@ class CreateVideo(APIView):
     permissions_classes = [IsAuthenticated]
     parser_classes = [MultiPartParser, FormParser]
 
-    def perform_create(self, serializer):
-        serializer.save(channel=self.request.user)
-
     def post(self, request, format=None):
         print(request.data)
         serializer = VideoSerializer(data=request.data)

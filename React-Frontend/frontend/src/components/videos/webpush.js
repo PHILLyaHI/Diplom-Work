@@ -5,8 +5,8 @@ import logo from "../../static/videos/logo.jpg";
 function WebPush() {
     const clickToNotify = () => {
         addNotification({
-            "title": "Message From Gleb",
-            "message": "Hello, can we talk about our tom...",
+            "title": "You got New Mssage",
+            "message": "Check the Chat",
             duration: 4000,
             icon: logo,
             native: true,

@@ -3,6 +3,7 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { AuthContext } from "./AuthContext";
 import { db } from "../../firebase";
 import { ChatContext } from "./ChatContext";
+import addNotification from "react-push-notification";
 
 const Chats = () => {
 
@@ -25,6 +26,12 @@ const Chats = () => {
 
   const handleSelect = (u) => {
     dispatch({type: "CHANGE_USER", payload: u})
+    addNotification({
+      "title": "You got New Mssage",
+      "message": "Check the Chat",
+      duration: 4000,
+      native: true,
+    });
   }
 
   console.log(Object.entries(chats))
