@@ -4,6 +4,8 @@ import { getAuth } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
+import { getMessaging } from "firebase/messaging";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyBVLvrQBiAQgtCQdC2eLrN2HTeFllLckh8",
@@ -15,8 +17,10 @@ const firebaseConfig = {
     measurementId: "G-B4SQE199W8"
 };
 
+
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const storage = getStorage();
 export const db = getFirestore()
+export const messaging = getMessaging(app);
 const analytics = getAnalytics(app);

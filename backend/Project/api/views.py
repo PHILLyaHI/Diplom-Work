@@ -34,7 +34,7 @@ class VideoListDetailfilter(generics.ListAPIView):
     queryset = Video.objects.all()
     serializer_class = VideoSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ['^title']
+    search_fields = ['^title', '^description', '^user']
 
 
 
