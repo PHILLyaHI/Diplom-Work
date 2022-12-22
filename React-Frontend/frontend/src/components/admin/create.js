@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axiosInstance from '../../axios';
 import { useHistory } from 'react-router-dom';
+import addNotification from "react-push-notification";
+import logo from "../../static/videos/logo.jpg";
 //MaterialUI
 import Avatar from '@material-ui/core/Avatar';
 import axios from "axios";
@@ -13,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import jwt_decode from "jwt-decode";
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -34,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
+
 export default function Create() {
 	const history = useHistory();
 	const initialFormData = Object.freeze({
@@ -45,6 +49,13 @@ export default function Create() {
 	const [videoimage, setVideoImage] = useState(null);
 	const [videovideo, setVideoVideo] = useState(null);
 
+	axiosInstance.defaults.headers['Authorization'] =
+	'JWT ' + localStorage.getItem('access_token');
+	
+	const token = localStorage.getItem('access_token');
+	const decoded = jwt_decode(token);
+
+	
 	const handleChange = (e) => {
 		if ([e.target.name] == 'image') {
 			setVideoImage({
@@ -77,7 +88,10 @@ export default function Create() {
 		const URL = 'http://127.0.0.1:8000/api/admin/create/';
 		let formData = new FormData();
 		formData.append('title', videoData.title);
-		formData.append('user', 1);
+
+		// default user_id seted to 1
+		formData.append('user', decoded.user_id);
+
 		formData.append('description', videoData.description);
 		formData.append('image', videoimage.image[0]);
 		formData.append('video', videovideo.video[0]);
@@ -88,6 +102,7 @@ export default function Create() {
 			})
 			.catch((err) => console.log(err));
 	};
+
 	
 	const classes = useStyles();
 
