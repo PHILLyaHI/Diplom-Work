@@ -34,7 +34,7 @@ class VideoListDetailfilter(generics.ListAPIView):
     queryset = Video.objects.all()
     serializer_class = VideoSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ['^title', '^description', '^user']
+    search_fields = ['^title']
 
 
 
@@ -59,7 +59,7 @@ class CreateVideo(APIView):
 
 class AdminVideoDetail(generics.RetrieveAPIView):
     permission_classes = [IsAuthenticated]
-    queryset = Video.objects.all()
+    quesryset = Video.objects.all()
     serializer_class = VideoSerializer
 
 class EditVideo(generics.UpdateAPIView):

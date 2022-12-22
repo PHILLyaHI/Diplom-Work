@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axiosInstance from '../../axios';
 import { useHistory } from 'react-router-dom';
-import addNotification from "react-push-notification";
-import logo from "../../static/videos/logo.jpg";
 //MaterialUI
 import Avatar from '@material-ui/core/Avatar';
 import axios from "axios";
@@ -36,8 +34,6 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-// ...
-// admin/create.js
 export default function Create() {
 	const history = useHistory();
 	const initialFormData = Object.freeze({
@@ -48,7 +44,6 @@ export default function Create() {
 	const [videoData, updateFormData] = useState(initialFormData);
 	const [videoimage, setVideoImage] = useState(null);
 	const [videovideo, setVideoVideo] = useState(null);
-	const [user, setUser] = useState(null);
 
 	const handleChange = (e) => {
 		if ([e.target.name] == 'image') {
@@ -82,10 +77,7 @@ export default function Create() {
 		const URL = 'http://127.0.0.1:8000/api/admin/create/';
 		let formData = new FormData();
 		formData.append('title', videoData.title);
-
-		// default user_id seted to 1
-		//formData.append('user', 1);
-
+		formData.append('user', 1);
 		formData.append('description', videoData.description);
 		formData.append('image', videoimage.image[0]);
 		formData.append('video', videovideo.video[0]);
@@ -96,7 +88,6 @@ export default function Create() {
 			})
 			.catch((err) => console.log(err));
 	};
-
 	
 	const classes = useStyles();
 

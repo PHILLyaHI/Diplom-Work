@@ -1,22 +1,12 @@
 from rest_framework import serializers
 from projectapp.models import Video
 from django.conf import settings
-from rest_framework.serializers import (
-    CharField,
-)
 
 
 class VideoSerializer(serializers.ModelSerializer):
-    user_name = CharField(source="user.user_name", read_only=True)
-
-    def save(self):
-        user = self.validated_data['user']
-
     class Meta:
         model = Video
-        fields = ["id", "title", "image", "video", "description", "date_added", "is_active", "user", "user_name", "likes"]
-    
-
+        fields = "__all__"
 
 class UserRegisterSerializer(serializers.ModelSerializer):
 

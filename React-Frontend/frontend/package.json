@@ -14,6 +14,7 @@
     "bootstrap": "^5.2.3",
     "emailjs-com": "^3.2.0",
     "firebase": "^9.15.0",
+    "jwt-decode": "^3.1.2",
     "material-ui-search-bar": "^1.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
@@ -25,6 +26,7 @@
     "react-scripts": "^5.0.1",
     "redis": "^4.5.1",
     "sass": "^1.56.2",
+    "supertokens-auth-react": "^0.28.1",
     "uuid": "^9.0.0",
     "websocket": "^1.0.34"
   },
