@@ -26,19 +26,16 @@ const Chats = () => {
 
   const handleSelect = (u) => {
     dispatch({type: "CHANGE_USER", payload: u})
-    addNotification({
-      "title": "You got New Mssage",
-      "message": "Check the Chat",
-      duration: 4000,
-      native: true,
-    });
   }
 
-  console.log(Object.entries(chats))
+
   return (
     <div className="chats">
       {Object.entries(chats)?.map((chat) => (
       <div className="userChat" key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)}>
+      {chats?.unread && (
+        <small className="unread">New</small>
+      )}
         <img src={chat[1].userInfo.photoURL} alt=""/>
         <div className="userChatInfo">
           <span>{chat[1].userInfo.displayName}</span>

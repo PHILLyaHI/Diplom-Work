@@ -18,10 +18,12 @@ class VideoUserWritePermission(BasePermission):
         return obj.user == request.user
 
 
+
+
 class VideoList(generics.ListAPIView):
     permission_classes = [AllowAny]
     serializer_class = VideoSerializer
-    queryset = Video.objects.all()
+    queryset = Video.objects.all().order_by('-date_added')
 
 class VideoDetail(generics.RetrieveAPIView):
     serializer_class = VideoSerializer
@@ -44,7 +46,7 @@ class VideoListDetailfilter(generics.ListAPIView):
 #     serializer_class = VideoSerializer
 
 class CreateVideo(APIView):
-    #permissions_classes = [IsAuthenticated]
+    permissions_classes = [IsAuthenticated]
     parser_classes = [MultiPartParser, FormParser]
 
     def post(self, request, format=None):

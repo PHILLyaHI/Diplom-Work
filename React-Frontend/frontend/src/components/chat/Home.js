@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
+import FBNotifications from "./FBNotifications";
 
 const Home = () => {
     return (
@@ -8,6 +9,7 @@ const Home = () => {
             <div className="container">
                 <Sidebar />
                 <Chat />
+                <FBNotifications />
             </div>
         </div>
     )

@@ -29,7 +29,7 @@ class Video(models.Model):
     title = models.CharField(max_length=50)
     image = models.ImageField(_("Image"), upload_to=upload_to, default="videos/default.jpg")
     video = models.FileField(_("Video"), upload_to=upload_to, default="videos/default.mp4")
-    user = models.OneToOneField(
+    user = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_channel"
     )
     description = models.CharField(max_length=255)

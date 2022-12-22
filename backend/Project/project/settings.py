@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'api',
     "corsheaders",
     "rest_framework_simplejwt.token_blacklist",
-    "django_filters",
+    'django_filters',
     "chat",
     "webpush",
 ]
@@ -173,6 +173,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],

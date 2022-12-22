@@ -4,7 +4,7 @@ import {
     useReducer,
   } from "react";
   import { AuthContext } from "./AuthContext";
-  
+
   export const ChatContext = createContext();
   
   export const ChatContextProvider = ({ children }) => {
@@ -23,7 +23,10 @@ import {
               currentUser.uid > action.payload.uid
                 ? currentUser.uid + action.payload.uid
                 : action.payload.uid + currentUser.uid,
+
           };
+
+          
   
         default:
           return state;
