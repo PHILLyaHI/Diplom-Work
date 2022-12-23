@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axiosInstance from '../../axios';
 import { useHistory } from 'react-router-dom';
 import addNotification from "react-push-notification";
-import logo from "../../static/videos/logo.jpg";
 //MaterialUI
 import Avatar from '@material-ui/core/Avatar';
 import axios from "axios";
@@ -102,6 +101,13 @@ export default function Create() {
 				console.log(res.data);
 			})
 			.catch((err) => console.log(err));
+		addNotification({
+			"title": "Your Video Have Been Uploaded",
+			"message": "Check your Video",
+			icon: "https://t4.ftcdn.net/jpg/04/17/28/67/360_F_417286789_1RG7Id7cxBo3wC46v5yhcVXzeo5b5nYx.jpg",
+			duration: 4000,
+			native: true,
+		});
 	};
 
 	
