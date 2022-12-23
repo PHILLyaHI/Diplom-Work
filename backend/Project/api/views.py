@@ -18,6 +18,14 @@ class VideoUserWritePermission(BasePermission):
         return obj.user == request.user
 
 
+class IsOwnerOrReadOnly(BasePermission):
+
+    def has_object_permission(self, request, view, obj):
+        # I check if the request is of type GET or OPTIONS
+        #I return true, that the use is able to access on this views
+        if request.method in SAFE_METHODS:
+            return True
+        return obj.owner == request.user
 
 
 class VideoList(generics.ListAPIView):
@@ -36,7 +44,7 @@ class VideoListDetailfilter(generics.ListAPIView):
     queryset = Video.objects.all()
     serializer_class = VideoSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ['^title']
+    search_fields = ['^title', ]
 
 
 
@@ -60,7 +68,7 @@ class CreateVideo(APIView):
 
 
 class AdminVideoDetail(generics.RetrieveAPIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     quesryset = Video.objects.all()
     serializer_class = VideoSerializer
 

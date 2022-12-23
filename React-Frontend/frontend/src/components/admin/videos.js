@@ -52,7 +52,7 @@ const Videos = (props) => {
 						<Table stickyHeader aria-label="sticky table">
 							<TableHead>
 								<TableRow>
-									<TableCell>Id</TableCell>
+									<TableCell>Username</TableCell>
 									<TableCell align="left">Title</TableCell>
 									<TableCell align="left">Action</TableCell>
 								</TableRow>
@@ -62,7 +62,7 @@ const Videos = (props) => {
 									return (
 										<TableRow>
 											<TableCell component="th" scope="row">
-												{video.id}
+												{video.user_name}
 											</TableCell>
 											<TableCell align="left">
 												<Link

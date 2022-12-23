@@ -56,17 +56,22 @@
 
 .like {
     position: absolute;
-    bottom: 14px;
+    bottom: 4px;
     left: 795px;
 }
 
 .dislike {
     position: absolute;
-    bottom: 14px;
+    bottom: 4px;
     left: 855px;
 }
 
 .description {
     position: relative;
+    top: 20px;
+}
+
+.date_added {
+    position: absolute;
     top: 20px;
 }

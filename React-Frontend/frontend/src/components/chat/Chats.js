@@ -34,7 +34,7 @@ const Chats = () => {
       {Object.entries(chats)?.map((chat) => (
       <div className="userChat" key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)}>
       {chats?.unread && (
-        <small className="unread">New</small>
+        <h1 className="unread">New</h1>
       )}
         <img src={chat[1].userInfo.photoURL} alt=""/>
         <div className="userChatInfo">

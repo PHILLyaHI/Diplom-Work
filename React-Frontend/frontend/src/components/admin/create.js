@@ -16,6 +16,7 @@ import Container from '@material-ui/core/Container';
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import jwt_decode from "jwt-decode";
+import "../../styles/create.css";
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -142,6 +143,8 @@ export default function Create() {
 								rows={4}
 							/>
 						</Grid>
+						<div class="creation-file">
+						<label for="image">Preview</label><br/>
 						<input
 							accept="image/*"
 							className={classes.input}
@@ -150,6 +153,8 @@ export default function Create() {
 							name="image"
 							type="file"
 						/>
+						<label for="video"><h1></h1>Video</label><br/>
+
 						<input
 							accept="video/*"
 							className={classes.input}
@@ -158,6 +163,7 @@ export default function Create() {
 							name="video"
 							type="file"
 						/>
+						</div>
 					</Grid>
 					<Button
 						type="submit"

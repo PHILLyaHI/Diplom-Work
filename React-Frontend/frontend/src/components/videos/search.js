@@ -56,6 +56,7 @@ const Search = () => {
 
 	return (
 		<React.Fragment>
+			<br/>
 			<Container maxWidth="md" component="main">
 				<Grid container spacing={5} alignItems="flex-end">
 					{appState.videos.map((video) => {
@@ -81,11 +82,16 @@ const Search = () => {
 											component="h2"
 											className={classes.videoTitle}
 										>
-											{video.title.substr(0, 50)}...
+											{video.title.substr(0, 50)}
 										</Typography>
 										<div className={classes.videoText}>
 											<Typography color="textSecondary">
-												{video.description.substr(0, 40)}...
+												{video.user_name.substr(0, 40)}
+											</Typography>
+										</div>
+										<div className={classes.videoDescription}>
+											<Typography color="textSecondary">
+												{video.date_added.substr(0, 40)}
 											</Typography>
 										</div>
 									</CardContent>
