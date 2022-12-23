@@ -22,7 +22,7 @@ function App() {
 	}, [setAppState]);
 	return (
 		<div className="App">
-			<h1>Hint: If something doesn't working, log out and then log in back.</h1>
+			<h1>Hint: If something doesn't working, reload the page, log out and then log in back.</h1>
 			<VideoLoading isLoading={appState.loading} videos={appState.videos} />
 		</div>
 	);

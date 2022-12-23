@@ -160,7 +160,6 @@ export default function Create() {
 							type="file"
 						/>
 						<label for="video"><h1></h1>Video</label><br/>
-
 						<input
 							accept="video/*"
 							className={classes.input}
