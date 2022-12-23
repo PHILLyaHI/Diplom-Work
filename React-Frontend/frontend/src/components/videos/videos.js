@@ -41,6 +41,7 @@ const Videos = (props) => {
 	if (!videos || videos.length === 0) return <p>Can not find any videos, sorry</p>;
 	return (
 		<React.Fragment>
+			<title>Test</title>
 			<Container maxWidth="md" component="main">
 				<Grid container spacing={5} alignItems="flex-end">
 					{videos.map((video) => {

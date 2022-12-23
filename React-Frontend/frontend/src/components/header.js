@@ -85,7 +85,7 @@ function Header() {
 							href="#"
 							className={classes.link}
 							component={NavLink}
-							to="/chat/login"
+							to="/chat/home"
 						>
 							Chat
 						</Link>
