@@ -1,5 +1,4 @@
 {
-  "homepage": "https://PHILLyaHI.github.io/diplom-work",
   "name": "frontend",
   "version": "1.0.0",
   "private": true,
@@ -34,8 +33,6 @@
     "websocket": "^1.0.34"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
